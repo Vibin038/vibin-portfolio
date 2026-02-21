@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vibin Kumar | Data Intelligence & Research Specialist</title>
+    <title>Vibin Kumar | Data Intelligence & Engineering Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -14,194 +14,198 @@
             --text-dim: #a0a0a0;
         }
 
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: 'Segoe UI', Roboto, sans-serif;
-            margin: 0;
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
-
+        body { background-color: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-serif; margin: 0; line-height: 1.6; }
         .container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
 
-        header { padding: 80px 0 40px; }
-        h1 { font-size: clamp(2.5rem, 8vw, 4rem); margin: 0; font-weight: 800; letter-spacing: -2px; text-transform: uppercase; line-height: 0.9; }
+        header { padding: 60px 0 30px; }
+        h1 { font-size: 3.5rem; margin: 0; font-weight: 800; text-transform: uppercase; line-height: 0.9; }
         .accent-text { color: var(--accent); }
-        .subtitle { font-size: 1.2rem; color: var(--text-dim); max-width: 800px; margin-top: 20px; }
+        .subtitle { font-size: 1.1rem; color: var(--text-dim); max-width: 850px; margin-top: 15px; }
 
-        .btn-primary {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 12px 25px;
-            background: var(--accent);
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: 0.3s;
+        /* TAB SYSTEM */
+        .tabs { display: flex; gap: 10px; margin: 40px 0 20px; border-bottom: 1px solid #222; padding-bottom: 10px; overflow-x: auto; scrollbar-width: none; }
+        .tabs::-webkit-scrollbar { display: none; }
+        .tab-btn {
+            background: none; border: none; color: var(--text-dim);
+            font-size: 0.9rem; font-weight: bold; cursor: pointer;
+            padding: 10px 15px; text-transform: uppercase; transition: 0.3s;
+            white-space: nowrap;
         }
+        .tab-btn.active { color: var(--accent); border-bottom: 2px solid var(--accent); }
+        .tab-content { display: none; animation: fadeIn 0.5s ease; }
+        .tab-content.active { display: block; }
 
-        .section-title { font-size: 2rem; margin: 60px 0 30px; border-left: 5px solid var(--accent); padding-left: 15px; text-transform: uppercase; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* SKILLS TAB STYLE */
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .skill-category { background: var(--card); padding: 25px; border-radius: 12px; border: 1px solid #222; }
-        .skill-category h3 { color: var(--accent); margin-top: 0; font-size: 1.1rem; text-transform: uppercase; }
-        .skill-list { list-style: none; padding: 0; margin: 0; color: var(--text-dim); font-size: 0.95rem; }
-        .skill-list li { margin-bottom: 8px; display: flex; align-items: center; }
+        /* GRID & CARDS */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .card { background: var(--card); padding: 25px; border-radius: 12px; border: 1px solid #222; display: flex; flex-direction: column; }
+        .card h3 { color: var(--accent); margin-top: 0; font-size: 1.1rem; text-transform: uppercase; }
+        .view-link { margin-top: auto; padding-top: 15px; font-size: 0.8rem; color: var(--accent); text-decoration: none; font-weight: bold; }
+
+        /* LISTS */
+        .job-card { margin-bottom: 30px; border-left: 2px solid var(--accent); padding-left: 20px; }
+        .job-date { color: var(--text-dim); font-size: 0.85rem; }
+        .skill-list { list-style: none; padding: 0; color: var(--text-dim); font-size: 0.95rem; }
+        .skill-list li { margin-bottom: 8px; }
         .skill-list li::before { content: "▹"; color: var(--accent); margin-right: 10px; }
 
-        /* RECOGNITION */
-        .recognition-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+        /* RECOGNITION IMAGES */
+        .recognition-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 40px; }
         .rec-card { background: var(--card); border-radius: 15px; overflow: hidden; border: 1px solid #222; }
         .rec-card img { width: 100%; height: auto; display: block; }
-        .rec-content { padding: 20px; font-size: 0.9rem; }
-        .rec-tag { color: var(--accent); font-weight: bold; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 5px; display: block; }
-
-        /* EXPERIENCE */
-        .job-card { margin-bottom: 40px; padding-left: 20px; border-left: 2px solid #222; }
-        .job-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; }
-        .job-title { font-size: 1.4rem; font-weight: bold; margin: 0; }
-        .job-company { color: var(--accent); font-weight: 600; margin: 5px 0; }
-        .job-date { color: var(--text-dim); font-size: 0.9rem; }
-        .job-desc { color: var(--text-dim); font-size: 0.95rem; margin-top: 10px; }
+        .rec-content { padding: 15px; font-size: 0.85rem; color: var(--text-dim); }
 
         /* CONTACT */
-        .contact-box { background: var(--card); padding: 50px; border-radius: 20px; text-align: center; margin-top: 80px; }
-        .contact-links { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 30px; }
-        .contact-item { text-decoration: none; color: white; transition: 0.3s; font-size: 0.9rem; }
-        .contact-item i { font-size: 2rem; display: block; margin-bottom: 10px; color: var(--accent); }
+        .contact-box { background: var(--card); padding: 40px; border-radius: 20px; text-align: center; margin-top: 60px; }
+        .contact-links { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 20px; }
+        .contact-item { text-decoration: none; color: white; font-size: 0.9rem; }
+        .contact-item i { color: var(--accent); margin-right: 8px; }
 
-        footer { text-align: center; padding: 40px; color: #444; font-size: 0.8rem; }
+        footer { text-align: center; padding: 40px; color: #444; font-size: 0.8rem; border-top: 1px solid #111; margin-top: 40px; }
     </style>
 </head>
 <body>
 
     <div class="container">
         <header>
-            <h1>Vibin <br><span class="accent-text">Kumar M. V.</span></h1>
-            <p class="subtitle">Research Specialist II with 3+ years of expertise in large-scale data validation, firmographic intelligence, and industrial automation. Proven track record of cleansing 80M+ records with 100% quality scores.</p>
-            <a href="Vibin_Kumar_Resume.pdf" class="btn-primary" target="_blank"><i class="fas fa-file-download"></i> Download Full Resume</a>
+            <h1>Vibin <span class="accent-text">Kumar</span></h1>
+            <p class="subtitle">Research Specialist II | Data Intelligence Expert | Cleansed 80M+ Records | B.Tech Electrical & Electronics Engineering</p>
+            <a href="Vibin_Kumar_Resume.pdf" style="display:inline-block; margin-top:20px; color:var(--accent); text-decoration:none; font-weight:bold;" target="_blank">
+                <i class="fas fa-file-pdf"></i> Download Official Resume
+            </a>
         </header>
 
-        <h2 class="section-title">Technical Expertise</h2>
-        <div class="skills-grid">
-            <div class="skill-category">
-                <h3>Data & Analytics</h3>
-                <ul class="skill-list">
-                    <li>SQL, BigQuery & Snowflake</li>
-                    <li>Advanced Excel (Macros, Pivot Tables)</li>
-                    <li>Python Fundamentals</li>
-                    <li>Power BI & Data Scraping</li>
-                    <li>Google Apps Script Automation</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Cloud & Platforms</h3>
-                <ul class="skill-list">
-                    <li>AWS & SaaS Ecosystems</li>
-                    <li>Salesforce & HubSpot CRM</li>
-                    <li>LLM-enabled AI Tools</li>
-                    <li>Snowflake Data Cloud</li>
-                    <li>Jira & Agile Workflows</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Industrial Automation</h3>
-                <ul class="skill-list">
-                    <li>HMI & Display Builder</li>
-                    <li>ABB Excitation Systems</li>
-                    <li>Electrical Schematics (E3)</li>
-                    <li>Troubleshooting & Commissioning</li>
-                    <li>Symphony Harmony Systems</li>
-                </ul>
-            </div>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab(event, 'experience')">Professional Experience</button>
+            <button class="tab-btn" onclick="openTab(event, 'skills')">Technical Skills</button>
+            <button class="tab-btn" onclick="openTab(event, 'education')">Education & Projects</button>
+            <button class="tab-btn" onclick="openTab(event, 'milestones')">Life Goals</button>
         </div>
 
-        <h2 class="section-title">Professional Experience</h2>
-        
-        <div class="job-card">
-            <div class="job-header">
-                <p class="job-title">Research Specialist II</p>
+        <div id="experience" class="tab-content active">
+            <div class="job-card">
                 <span class="job-date">Jan 2024 – Present</span>
+                <h3>Research Specialist II | ZoomInfo</h3>
+                <p>Leading firmographic data governance. Key contributor to <strong>ZI Guardian</strong> (AI Middleware) for real-time validation. Optimized datasets for 80M+ records with 100% quality metrics.</p>
             </div>
-            <p class="job-company">ZoomInfo Technologies</p>
-            <div class="job-desc">
-                Leading enterprise-level firmographic validation and large-scale data cleansing across millions of records. Developed <strong>ZI Guardian</strong>, an AI-driven middleware for real-time validation, and utilized SQL/Snowflake to optimize sales intelligence accuracy.
-            </div>
-        </div>
-
-        <div class="job-card">
-            <div class="job-header">
-                <p class="job-title">Supplier Content Analyst</p>
+            <div class="job-card">
                 <span class="job-date">May 2022 – Nov 2023</span>
+                <h3>Supplier Content Analyst | RR Donnelley</h3>
+                <p>Managed industrial intelligence for <strong>ThomasNet</strong>. Earned three consecutive Stellar Awards for precision in data management and SLA compliance.</p>
             </div>
-            <p class="job-company">RR Donnelley</p>
-            <div class="job-desc">
-                Managed the supplier content lifecycle for the <strong>ThomasNet</strong> industrial marketplace. Performed structured web research and competitive analysis to improve search relevance for U.S.-based industrial clients.
-            </div>
-        </div>
-
-        <div class="job-card">
-            <div class="job-header">
-                <p class="job-title">Associate Field Service Engineer</p>
+            <div class="job-card">
                 <span class="job-date">Jan 2021 – May 2022</span>
-            </div>
-            <p class="job-company">ABB India Ltd.</p>
-            <div class="job-desc">
-                Developed electrical schematics and HMI graphics for power plant automation. Executed system testing, troubleshooting, and commissioning support for excitation panels and industrial server infrastructure.
+                <h3>Associate Field Engineer | ABB India</h3>
+                <p>Specialized in Power Plant Automation. Designed HMI graphics and commissioned excitation systems for industrial energy environments.</p>
             </div>
         </div>
 
-        <h2 class="section-title">Impact & Awards</h2>
+        <div id="skills" class="tab-content">
+            <div class="grid">
+                <div class="card">
+                    <h3>Data Intelligence</h3>
+                    <ul class="skill-list">
+                        <li>SQL, Snowflake & BigQuery</li>
+                        <li>Google Apps Script Automation</li>
+                        <li>Advanced Excel VBA / Macros</li>
+                        <li>SaaS Data Governance</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Engineering & Platforms</h3>
+                    <ul class="skill-list">
+                        <li>Salesforce, HubSpot & Jira</li>
+                        <li>HMI Design (Symphony Harmony)</li>
+                        <li>AWS SaaS Ecosystem</li>
+                        <li>Industrial Troubleshooting</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="education" class="tab-content">
+            <div class="job-card">
+                <h3>B.Tech in Electrical & Electronics Engineering</h3>
+                <p class="accent-text">SRM Institute of Science and Technology, Chennai</p>
+                <p>Focused on Power Electronics, Renewable Energy, and Automation Systems.</p>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <h3>E-Bike Power Converter</h3>
+                    <p>Designed a Bi-Directional Power Converter enabling efficient energy flow between battery and motor for Electric Bike sustainability.</p>
+                </div>
+                <div class="card">
+                    <h3>PV-Battery SEPIC System</h3>
+                    <p>Developed an optimized photovoltaic model using a Quadratic Improved SEPIC Converter for enhanced stability in renewable energy.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="milestones" class="tab-content">
+            <div class="grid">
+                <div class="card">
+                    <h3><i class="fas fa-medal"></i> Rajapuraskar Award</h3>
+                    <p>Recipient of the Governor's Award for excellence in social service, leadership, and scouting discipline.</p>
+                    <a href="governor-award.jpeg" target="_blank" class="view-link">View Certificate →</a>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-motorcycle"></i> Ladakh Expedition</h3>
+                    <p>Conquered the Himalayas on a high-altitude biking journey, proving endurance and mental grit.</p>
+                    <a href="ladakh.jpg" target="_blank" class="view-link">View Achievement →</a>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-mask"></i> Scuba Diving</h3>
+                    <p>Certified Scuba Diver. Trained for calm decision-making and precision in high-pressure environments.</p>
+                    <a href="scuba.jpeg" target="_blank" class="view-link">View Certificate →</a>
+                </div>
+            </div>
+        </div>
+
+        <h2 style="margin-top:60px; border-left: 4px solid var(--accent); padding-left:15px;">IMPACT & RECOGNITION</h2>
         <div class="recognition-grid">
             <div class="rec-card">
-                <img src="mvp.jpeg" alt="ZoomInfo MVP Nomination">
-                <div class="rec-content">
-                    <span class="rec-tag">ZoomInfo</span>
-                    Nominated as a <strong>"Personal MVP"</strong> and recognized as an exceptional innovator by the Chief Data Officer for solving complex organizational challenges.
-                </div>
+                <img src="mvp.jpeg" alt="ZoomInfo MVP">
+                <div class="rec-content">Nominated as <strong>Personal MVP</strong> by CDO Brandon Tucker.</div>
             </div>
             <div class="rec-card">
-                <img src="stellar.jpeg" alt="Stellar Award">
-                <div class="rec-content">
-                    <span class="rec-tag">RR Donnelley</span>
-                    <strong>Three-time Stellar Award winner</strong> and "Topper of the Month" with 100% productivity and quality ratings.
-                </div>
+                <img src="profile.jpeg" alt="All Hands Recognition">
+                <div class="rec-content">Recognized at <strong>Research All Hands</strong> for consistent high-quality delivery.</div>
             </div>
             <div class="rec-card">
-                <img src="shoutout2.jpeg" alt="Data Impact Statistics">
-                <div class="rec-content">
-                    <span class="rec-tag">Results</span>
-                    Managed 18 BDC cases impacting <strong>60 million records</strong> with a consistent 99%+ quality rating.
-                </div>
+                <img src="shoutout2.jpeg" alt="60M Records Impact">
+                <div class="rec-content">Directly Impacted <strong>60 Million records</strong> with 99%+ quality rating.</div>
             </div>
         </div>
 
-        <section class="contact-box" id="contact">
+        <section class="contact-box">
             <h2 class="accent-text">Let's Connect</h2>
             <div class="contact-links">
-                <a href="mailto:vibinkumarmv38@gmail.com" class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <span>vibinkumarmv38@gmail.com</span>
-                </a>
-                <a href="https://www.linkedin.com/in/vibin-kumar-m-v-43b140227/" target="_blank" class="contact-item">
-                    <i class="fab fa-linkedin"></i>
-                    <span>LinkedIn Profile</span>
-                </a>
-                <a href="tel:+919789826311" class="contact-item">
-                    <i class="fas fa-phone-alt"></i>
-                    <span>+91 978 9826 311</span>
-                </a>
+                <a href="mailto:vibinkumarmv38@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> vibinkumarmv38@gmail.com</a>
+                <a href="tel:+919789826311" class="contact-item"><i class="fas fa-phone"></i> +91 978 9826 311</a>
+                <a href="https://www.linkedin.com/in/vibin-kumar-m-v-43b140227/" target="_blank" class="contact-item"><i class="fab fa-linkedin"></i> LinkedIn</a>
             </div>
         </section>
 
         <footer>
-            <p>© 2026 Vibin Kumar M. V. | Data Intelligence & Engineering Portfolio</p>
+            <p>© 2026 Vibin Kumar M. V. | Chennai, India</p>
         </footer>
     </div>
 
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
 </body>
 </html>
-``` [cite: 111, 113, 114, 116, 127, 128, 129, 136, 145, 151, 164, 168, 172, 180, 181, 182]
