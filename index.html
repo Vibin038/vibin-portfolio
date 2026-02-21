@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vibin Kumar | Data Intelligence & Engineering Portfolio</title>
+    <title>Vibin Kumar M V | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -17,14 +17,15 @@
         body { background-color: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-serif; margin: 0; line-height: 1.6; }
         .container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
 
-        header { padding: 60px 0 30px; }
+        /* HEADER & OVERVIEW */
+        header { padding: 60px 0 20px; }
         h1 { font-size: 3.5rem; margin: 0; font-weight: 800; text-transform: uppercase; line-height: 0.9; }
         .accent-text { color: var(--accent); }
-        .subtitle { font-size: 1.1rem; color: var(--text-dim); max-width: 850px; margin-top: 15px; }
+        .overview-box { background: var(--card); padding: 30px; border-radius: 15px; margin-top: 30px; border-left: 5px solid var(--accent); }
+        .overview-box p { margin: 0; color: var(--text-dim); font-size: 1.1rem; }
 
         /* TAB SYSTEM */
-        .tabs { display: flex; gap: 10px; margin: 40px 0 20px; border-bottom: 1px solid #222; padding-bottom: 10px; overflow-x: auto; scrollbar-width: none; }
-        .tabs::-webkit-scrollbar { display: none; }
+        .tabs { display: flex; gap: 10px; margin: 40px 0 20px; border-bottom: 1px solid #222; padding-bottom: 10px; overflow-x: auto; }
         .tab-btn {
             background: none; border: none; color: var(--text-dim);
             font-size: 0.9rem; font-weight: bold; cursor: pointer;
@@ -37,88 +38,86 @@
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* GRID & CARDS */
+        /* CONTENT CARDS */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .card { background: var(--card); padding: 25px; border-radius: 12px; border: 1px solid #222; display: flex; flex-direction: column; }
-        .card h3 { color: var(--accent); margin-top: 0; font-size: 1.1rem; text-transform: uppercase; }
-        .view-link { margin-top: auto; padding-top: 15px; font-size: 0.8rem; color: var(--accent); text-decoration: none; font-weight: bold; }
-
-        /* LISTS */
-        .job-card { margin-bottom: 30px; border-left: 2px solid var(--accent); padding-left: 20px; }
-        .job-date { color: var(--text-dim); font-size: 0.85rem; }
+        .card { background: var(--card); padding: 25px; border-radius: 12px; border: 1px solid #222; }
+        .job-card { margin-bottom: 30px; border-left: 2px solid #333; padding-left: 20px; }
+        .job-date { color: var(--accent); font-weight: bold; font-size: 0.85rem; }
         .skill-list { list-style: none; padding: 0; color: var(--text-dim); font-size: 0.95rem; }
         .skill-list li { margin-bottom: 8px; }
         .skill-list li::before { content: "▹"; color: var(--accent); margin-right: 10px; }
 
-        /* RECOGNITION IMAGES */
-        .recognition-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 40px; }
-        .rec-card { background: var(--card); border-radius: 15px; overflow: hidden; border: 1px solid #222; }
-        .rec-card img { width: 100%; height: auto; display: block; }
+        /* SEPARATE IMPACT SECTION */
+        .impact-section { margin-top: 80px; padding-top: 40px; border-top: 1px solid #222; }
+        .section-title { font-size: 1.8rem; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 2px; }
+        .recognition-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .rec-card { background: var(--card); border-radius: 12px; overflow: hidden; border: 1px solid #222; transition: 0.3s; }
+        .rec-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .rec-card img { width: 100%; height: 200px; object-fit: cover; display: block; }
         .rec-content { padding: 15px; font-size: 0.85rem; color: var(--text-dim); }
 
-        /* CONTACT */
+        /* CONTACT & FOOTER */
         .contact-box { background: var(--card); padding: 40px; border-radius: 20px; text-align: center; margin-top: 60px; }
         .contact-links { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 20px; }
         .contact-item { text-decoration: none; color: white; font-size: 0.9rem; }
         .contact-item i { color: var(--accent); margin-right: 8px; }
-
-        footer { text-align: center; padding: 40px; color: #444; font-size: 0.8rem; border-top: 1px solid #111; margin-top: 40px; }
+        footer { text-align: center; padding: 40px; color: #444; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
     <div class="container">
         <header>
-            <h1>Vibin <span class="accent-text">Kumar</span></h1>
-            <p class="subtitle">Research Specialist II | Data Intelligence Expert | Cleansed 80M+ Records | B.Tech Electrical & Electronics Engineering</p>
+            <h1>Vibin Kumar <span class="accent-text">M V</span></h1>
+            <div class="overview-box">
+                <p>Research Specialist with 3+ years of experience spanning SaaS Data Intelligence and Manufacturing Automation. I specialize in large-scale data governance, having cleansed 80M+ records, and drive innovation through AI-enabled workflows like ZI Guardian.</p>
+            </div>
             <a href="Vibin_Kumar_Resume.pdf" style="display:inline-block; margin-top:20px; color:var(--accent); text-decoration:none; font-weight:bold;" target="_blank">
                 <i class="fas fa-file-pdf"></i> Download Official Resume
             </a>
         </header>
 
         <div class="tabs">
-            <button class="tab-btn active" onclick="openTab(event, 'experience')">Professional Experience</button>
-            <button class="tab-btn" onclick="openTab(event, 'skills')">Technical Skills</button>
-            <button class="tab-btn" onclick="openTab(event, 'education')">Education & Projects</button>
-            <button class="tab-btn" onclick="openTab(event, 'milestones')">Life Goals</button>
+            <button class="tab-btn active" onclick="openTab(event, 'experience')">Experience</button>
+            <button class="tab-btn" onclick="openTab(event, 'skills')">Skills</button>
+            <button class="tab-btn" onclick="openTab(event, 'education')">Education</button>
+            <button class="tab-btn" onclick="openTab(event, 'milestones')">Personal Goals</button>
         </div>
 
         <div id="experience" class="tab-content active">
             <div class="job-card">
-                <span class="job-date">Jan 2024 – Present</span>
+                <span class="job-date">JAN 2024 – PRESENT</span>
                 <h3>Research Specialist II | ZoomInfo</h3>
-                <p>Leading firmographic data governance. Key contributor to <strong>ZI Guardian</strong> (AI Middleware) for real-time validation. Optimized datasets for 80M+ records with 100% quality metrics.</p>
+                <p>Leading firmographic intelligence and enterprise data governance. Key innovator for <strong>ZI Guardian</strong>, an AI-driven middleware for real-time data enrichment during exports. Cleansed 80M+ records to improve sales intelligence accuracy.</p>
             </div>
             <div class="job-card">
-                <span class="job-date">May 2022 – Nov 2023</span>
+                <span class="job-date">MAY 2022 – NOV 2023</span>
                 <h3>Supplier Content Analyst | RR Donnelley</h3>
-                <p>Managed industrial intelligence for <strong>ThomasNet</strong>. Earned three consecutive Stellar Awards for precision in data management and SLA compliance.</p>
+                <p>Managed industrial marketplace data for <strong>ThomasNet</strong>. Maintained 100% quality and productivity across supplier content management, winning three consecutive Stellar Awards.</p>
             </div>
             <div class="job-card">
-                <span class="job-date">Jan 2021 – May 2022</span>
-                <h3>Associate Field Engineer | ABB India</h3>
-                <p>Specialized in Power Plant Automation. Designed HMI graphics and commissioned excitation systems for industrial energy environments.</p>
+                <span class="job-date">JAN 2021 – MAY 2022</span>
+                <h3>Associate Field Service Engineer | ABB India</h3>
+                <p>Designed HMI graphics and electrical schematics. Commissioned excitation systems and stabilized industrial server environments for power plant automation.</p>
             </div>
         </div>
 
         <div id="skills" class="tab-content">
             <div class="grid">
                 <div class="card">
-                    <h3>Data Intelligence</h3>
+                    <h3>Data Engineering</h3>
                     <ul class="skill-list">
                         <li>SQL, Snowflake & BigQuery</li>
                         <li>Google Apps Script Automation</li>
-                        <li>Advanced Excel VBA / Macros</li>
-                        <li>SaaS Data Governance</li>
+                        <li>Advanced Excel VBA Macros</li>
                     </ul>
                 </div>
                 <div class="card">
-                    <h3>Engineering & Platforms</h3>
+                    <h3>Platforms & Tools</h3>
                     <ul class="skill-list">
-                        <li>Salesforce, HubSpot & Jira</li>
-                        <li>HMI Design (Symphony Harmony)</li>
+                        <li>Salesforce & HubSpot CRM</li>
                         <li>AWS SaaS Ecosystem</li>
-                        <li>Industrial Troubleshooting</li>
+                        <li>HMI Design (Symphony Harmony)</li>
                     </ul>
                 </div>
             </div>
@@ -128,58 +127,58 @@
             <div class="job-card">
                 <h3>B.Tech in Electrical & Electronics Engineering</h3>
                 <p class="accent-text">SRM Institute of Science and Technology, Chennai</p>
-                <p>Focused on Power Electronics, Renewable Energy, and Automation Systems.</p>
-            </div>
-            <div class="grid">
-                <div class="card">
-                    <h3>E-Bike Power Converter</h3>
-                    <p>Designed a Bi-Directional Power Converter enabling efficient energy flow between battery and motor for Electric Bike sustainability.</p>
-                </div>
-                <div class="card">
-                    <h3>PV-Battery SEPIC System</h3>
-                    <p>Developed an optimized photovoltaic model using a Quadratic Improved SEPIC Converter for enhanced stability in renewable energy.</p>
-                </div>
+                <p>Specialized in Power Electronics and Renewable Energy Systems. Developed Bi-Directional Power Converters for Electric Bikes and optimized PV-Battery integration models.</p>
             </div>
         </div>
 
         <div id="milestones" class="tab-content">
             <div class="grid">
                 <div class="card">
-                    <h3><i class="fas fa-medal"></i> Rajapuraskar Award</h3>
-                    <p>Recipient of the Governor's Award for excellence in social service, leadership, and scouting discipline.</p>
-                    <a href="governor-award.jpeg" target="_blank" class="view-link">View Certificate →</a>
+                    <h3>Scuba Diving</h3>
+                    <p>Certified Scuba Diver, demonstrating adaptability and calmness in high-pressure, technical environments.</p>
+                    <a href="scuba.jpeg" target="_blank" style="color:var(--accent); text-decoration:none; font-size:0.8rem;">View Certificate →</a>
                 </div>
                 <div class="card">
-                    <h3><i class="fas fa-motorcycle"></i> Ladakh Expedition</h3>
-                    <p>Conquered the Himalayas on a high-altitude biking journey, proving endurance and mental grit.</p>
-                    <a href="ladakh.jpg" target="_blank" class="view-link">View Achievement →</a>
+                    <h3>Ladakh Expedition</h3>
+                    <p>Conquered the Himalayas on a high-altitude biking journey, proving mental grit and physical endurance.</p>
+                    <a href="ladakh.jpg" target="_blank" style="color:var(--accent); text-decoration:none; font-size:0.8rem;">View Photo →</a>
                 </div>
                 <div class="card">
-                    <h3><i class="fas fa-mask"></i> Scuba Diving</h3>
-                    <p>Certified Scuba Diver. Trained for calm decision-making and precision in high-pressure environments.</p>
-                    <a href="scuba.jpeg" target="_blank" class="view-link">View Certificate →</a>
+                    <h3>Governor's Award</h3>
+                    <p>Recipient of the Rajapuraskar (Governor's Award) for excellence in scouting, leadership, and community service.</p>
+                    <a href="governor-award.jpeg" target="_blank" style="color:var(--accent); text-decoration:none; font-size:0.8rem;">View Certificate →</a>
                 </div>
             </div>
         </div>
 
-        <h2 style="margin-top:60px; border-left: 4px solid var(--accent); padding-left:15px;">IMPACT & RECOGNITION</h2>
-        <div class="recognition-grid">
-            <div class="rec-card">
-                <img src="mvp.jpeg" alt="ZoomInfo MVP">
-                <div class="rec-content">Nominated as <strong>Personal MVP</strong> by CDO Brandon Tucker.</div>
+        <section class="impact-section">
+            <h2 class="section-title"><span class="accent-text">/</span> Impact & Achievements</h2>
+            <div class="recognition-grid">
+                <div class="rec-card">
+                    <img src="mvp.jpeg" alt="MVP Award">
+                    <div class="rec-content">Nominated as <strong>Personal MVP</strong> by ZoomInfo CDO for innovation.</div>
+                </div>
+                <div class="rec-card">
+                    <img src="stellar.jpeg" alt="Stellar Award">
+                    <div class="rec-content">Three-time <strong>Stellar Award</strong> winner for 100% Quality/Productivity.</div>
+                </div>
+                <div class="rec-card">
+                    <img src="shoutout2.jpeg" alt="60M Records">
+                    <div class="rec-content">Impacted <strong>60 Million records</strong> with 99%+ accuracy rating.</div>
+                </div>
+                <div class="rec-card">
+                    <img src="profile.jpeg" alt="All Hands">
+                    <div class="rec-content">Recognized at <strong>Research All Hands</strong> for operational excellence.</div>
+                </div>
+                <div class="rec-card">
+                    <img src="shoutout1.jpeg" alt="Quality Shoutout">
+                    <div class="rec-content">Consistent <strong>100% Quality Score</strong> across 80M+ cleansed records.</div>
+                </div>
             </div>
-            <div class="rec-card">
-                <img src="profile.jpeg" alt="All Hands Recognition">
-                <div class="rec-content">Recognized at <strong>Research All Hands</strong> for consistent high-quality delivery.</div>
-            </div>
-            <div class="rec-card">
-                <img src="shoutout2.jpeg" alt="60M Records Impact">
-                <div class="rec-content">Directly Impacted <strong>60 Million records</strong> with 99%+ quality rating.</div>
-            </div>
-        </div>
+        </section>
 
         <section class="contact-box">
-            <h2 class="accent-text">Let's Connect</h2>
+            <h2 class="accent-text">Connect with Me</h2>
             <div class="contact-links">
                 <a href="mailto:vibinkumarmv38@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> vibinkumarmv38@gmail.com</a>
                 <a href="tel:+919789826311" class="contact-item"><i class="fas fa-phone"></i> +91 978 9826 311</a>
@@ -188,7 +187,7 @@
         </section>
 
         <footer>
-            <p>© 2026 Vibin Kumar M. V. | Chennai, India</p>
+            <p>© 2026 Vibin Kumar M V | Built with Data Intelligence</p>
         </footer>
     </div>
 
