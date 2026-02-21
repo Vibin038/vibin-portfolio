@@ -17,33 +17,44 @@
         }
 
         body { 
-            background-color: var(--bg); color: var(--text); 
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
-            margin: 0; line-height: 1.6;
+            background-color: var(--bg); 
+            color: var(--text); 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            margin: 0; 
+            line-height: 1.6;
         }
 
         .container { max-width: 1000px; margin: 0 auto; padding: 3rem 1.5rem; }
 
+        /* HEADER */
         header { border-bottom: 1px solid var(--border); padding-bottom: 2rem; }
         h1 { font-size: 3rem; margin: 0; color: var(--text-bright); font-weight: 800; letter-spacing: -1px; }
         .accent-text { color: var(--accent); }
         
         .overview-box { 
             background: linear-gradient(145deg, #1c2128, #161b22);
-            padding: 2rem; border-radius: 12px; margin-top: 1.5rem; border: 1px solid var(--border);
+            padding: 2rem; 
+            border-radius: 12px; 
+            margin-top: 1.5rem; 
+            border: 1px solid var(--border);
             box-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
-        .overview-box p { margin: 0; font-size: 1.05rem; color: var(--text); text-align: justify; }
+        .overview-box p { margin: 10px 0; font-size: 1rem; color: var(--text); text-align: justify; }
 
         /* TABS */
         .tabs { 
-            display: flex; gap: 5px; margin: 40px 0 20px; background: #161b22;
-            padding: 5px; border-radius: 8px; overflow-x: auto;
+            display: flex; 
+            gap: 5px; 
+            margin: 40px 0 20px; 
+            background: #161b22;
+            padding: 5px;
+            border-radius: 8px;
+            overflow-x: auto;
         }
         .tab-btn {
             background: transparent; border: none; color: var(--text);
-            font-size: 0.82rem; font-weight: 600; cursor: pointer;
-            padding: 12px 15px; border-radius: 6px; text-transform: uppercase;
+            font-size: 0.85rem; font-weight: 600; cursor: pointer;
+            padding: 12px 20px; border-radius: 6px; text-transform: uppercase;
             transition: all 0.3s ease; white-space: nowrap; flex: 1;
         }
         .tab-btn:hover { background: #21262d; color: var(--accent); }
@@ -57,31 +68,62 @@
             to { opacity: 1; transform: translateY(0); } 
         }
 
-        /* CONTENT STYLES */
+        /* CARDS & LISTS */
         .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-        .card { background: var(--card); padding: 1.5rem; border-radius: 10px; border: 1px solid var(--border); }
+        .card { 
+            background: var(--card); padding: 1.5rem; border-radius: 10px; 
+            border: 1px solid var(--border); transition: transform 0.2s;
+        }
+        .card:hover { border-color: var(--accent); transform: translateY(-3px); }
         
         .exp-item { margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid #21262d; }
-        .exp-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 5px; }
+        .exp-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 10px; }
         .exp-title { font-size: 1.2rem; font-weight: 700; color: var(--text-bright); margin: 0; }
         .exp-date { font-size: 0.85rem; color: var(--accent); font-weight: 600; }
-        .exp-company { font-size: 0.9rem; color: #8b949e; margin-bottom: 10px; display: block; font-weight: 600; }
+        .exp-company { font-size: 0.95rem; color: var(--text-dim); margin-bottom: 10px; display: block; }
 
         ul.resume-list { list-style: none; padding: 0; margin: 0; }
         ul.resume-list li { position: relative; padding-left: 20px; margin-bottom: 8px; font-size: 0.95rem; text-align: justify;}
         ul.resume-list li::before { content: "•"; color: var(--accent); position: absolute; left: 0; font-weight: bold; }
 
-        /* CLICKABLE IMAGE CARDS */
+        /* IMPACT TAB - NEW STYLE */
         .impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
-        .img-link { text-decoration: none; color: inherit; display: block; transition: transform 0.2s; }
-        .img-link:hover { transform: translateY(-5px); }
         .impact-card { 
-            background: #0d1117; border-radius: 12px; border: 1px solid var(--border); overflow: hidden; height: 100%;
+            background: #0d1117; border-radius: 12px; border: 1px solid var(--border); overflow: hidden;
+            cursor: pointer; transition: 0.3s;
         }
+        .impact-card img { width: 100%; height: 180px; object-fit: cover; opacity: 0.8; transition: 0.3s; }
         .impact-card:hover { border-color: var(--accent); }
-        .impact-card img { width: 100%; height: 180px; object-fit: cover; opacity: 0.85; transition: 0.3s; }
-        .img-link:hover img { opacity: 1; }
-        .impact-desc { padding: 15px; font-size: 0.85rem; border-top: 1px solid var(--border); text-align: center; }
+        .impact-card:hover img { opacity: 1; transform: scale(1.05); }
+        .impact-desc { padding: 15px; font-size: 0.85rem; border-top: 1px solid var(--border); }
+
+        /* MODAL FOR FULL SCREEN VIEW */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 85%;
+            border-radius: 8px;
+            animation: zoomIn 0.3s ease;
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .close-modal {
+            position: absolute;
+            top: 20px; right: 35px;
+            color: #fff; font-size: 40px; font-weight: bold; cursor: pointer;
+        }
 
         /* CONTACT */
         .contact-section { text-align: center; margin-top: 50px; padding: 30px; border-top: 1px solid var(--border); }
@@ -102,14 +144,14 @@
             </div>
             <div style="margin-top:20px;">
                 <a href="Vibin_Kumar_Resume.pdf" target="_blank" style="color:var(--accent); text-decoration:none; font-weight:bold; border: 1px solid var(--accent); padding: 8px 16px; border-radius: 6px;">
-                    <i class="fas fa-file-pdf"></i> View Resume
+                    <i class="fas fa-download"></i> Download Full Resume
                 </a>
             </div>
         </header>
 
         <div class="tabs">
-            <button class="tab-btn active" onclick="openTab(event, 'experience')">Experience</button>
-            <button class="tab-btn" onclick="openTab(event, 'skills')">Skills</button>
+            <button class="tab-btn active" onclick="openTab(event, 'experience')">Work Experience</button>
+            <button class="tab-btn" onclick="openTab(event, 'skills')">Technical Skills</button>
             <button class="tab-btn" onclick="openTab(event, 'education')">Education & Projects</button>
             <button class="tab-btn" onclick="openTab(event, 'impact')">Impact & Awards</button>
             <button class="tab-btn" onclick="openTab(event, 'milestones')">Personal Goals</button>
@@ -123,25 +165,29 @@
                 </div>
                 <span class="exp-company">Zoominfo Technologies, Chennai, India</span>
                 <ul class="resume-list">
-                    <li>Validating enterprise firmographic structures and executive hierarchies.</li>
-                    <li>Executing large-scale data cleansing and anomaly detection across millions of records.</li>
-                    <li>Utilizing SQL, BigQuery, and Snowflake for structured analytics and reporting.</li>
-                    <li>Developed Apps Script automation and custom UIs to reduce manual intervention.</li>
-                    <li>Contributing to AI-assisted workflows using LLM-enabled tools for data enrichment.</li>
+                    <li>Conducting enterprise-level firmographic research to validate organizational structures, industry classifications, and executive hierarchies.</li>
+                    <li>Executed large-scale data cleansing and validation across millions of records to improve global sales intelligence accuracy.</li>
+                    <li>Worked extensively with SQL, BigQuery, and Snowflake for structured analytics and reporting.</li>
+                    <li>Developed automation workflows using Apps Script and macros to reduce manual intervention.</li>
+                    <li>Designed and deployed custom UI components using Google Apps Script to streamline internal validation.</li>
+                    <li>Participated in ZoomInfo Innovation (Aatral 2025), contributing to next-generation data solutions.</li>
                 </ul>
             </div>
+
             <div class="exp-item">
                 <div class="exp-header">
-                    <p class="exp-title">Supplier Content Analyst</p>
+                    <p class="exp-title">Customer Support Associate – Supplier Content Analyst</p>
                     <span class="exp-date">MAY 2022 – NOV 2023</span>
                 </div>
                 <span class="exp-company">RR Donnelley, Chennai, India</span>
                 <ul class="resume-list">
-                    <li>Managed supplier content lifecycles for the ThomasNet industrial marketplace.</li>
-                    <li>Conducted web research and competitive analysis for structured data validation.</li>
-                    <li>Leveraged HubSpot, Jira, and Convirza to manage client deliverables and workflows.</li>
+                    <li>Managed supplier content lifecycle for a U.S. industrial marketplace (ThomasNet).</li>
+                    <li>Conducted detailed web research and structured data validation from supplier websites.</li>
+                    <li>Maintained consistent communication with U.S. clients via email and calls to validate deliverables.</li>
+                    <li>Leveraged CRM tools including HubSpot, Convirza, Jira, and Slack.</li>
                 </ul>
             </div>
+
             <div class="exp-item">
                 <div class="exp-header">
                     <p class="exp-title">Associate Field Service Engineer</p>
@@ -149,8 +195,10 @@
                 </div>
                 <span class="exp-company">ABB India Ltd., Bengaluru, India</span>
                 <ul class="resume-list">
-                    <li>Developed electrical schematics and HMI graphics for power plant automation.</li>
-                    <li>Executed commissioning and troubleshooting for excitation systems and server infrastructure.</li>
+                    <li>Developed engineering designs & electrical schematics using E3 software for industrial excitation systems.</li>
+                    <li>Contributed to Symphony Harmony process automation projects.</li>
+                    <li>Designed, tested, and validated HMI graphics using Display Builder and Power Explorer tools.</li>
+                    <li>Executed progress testing and troubleshooting for HMI systems in power plants.</li>
                 </ul>
             </div>
         </div>
@@ -162,8 +210,8 @@
                     <ul class="resume-list">
                         <li>SQL, BigQuery, Snowflake</li>
                         <li>Google Apps Script (Automation)</li>
-                        <li>Excel VBA, Macros, Pivot Tables</li>
-                        <li>Basic Python, Data Scraping</li>
+                        <li>Excel (Macros, Pivot Tables)</li>
+                        <li>Power BI, Data Scraping</li>
                     </ul>
                 </div>
                 <div class="card">
@@ -175,6 +223,19 @@
                         <li>Micro Apps Development</li>
                     </ul>
                 </div>
+                <div class="card">
+                    <h3 class="accent-text">Automation & Engineering</h3>
+                    <ul class="resume-list">
+                        <li>HMI, Display Builder</li>
+                        <li>E3 Software</li>
+                        <li>Industrial Automation Systems</li>
+                        <li>Excitation Products</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="overview-box" style="margin-top: 20px;">
+                <h3 class="accent-text" style="margin-top:0">Soft Skills</h3>
+                <p>Analytical Thinking | Problem Solving | Attention to Detail | SLA Compliance | Cross-Functional Collaboration | Quality Assurance</p>
             </div>
         </div>
 
@@ -209,62 +270,49 @@
 
         <div id="impact" class="tab-content">
             <div class="impact-grid">
-                <a href="mvp.jpeg" target="_blank" class="img-link">
-                    <div class="impact-card">
-                        <img src="mvp.jpeg" alt="ZoomInfo MVP">
-                        <div class="impact-desc"><strong>ZoomInfo Personal MVP</strong><br>Nominated by CDO for Innovation</div>
-                    </div>
-                </a>
-                <a href="stellar.jpeg" target="_blank" class="img-link">
-                    <div class="impact-card">
-                        <img src="stellar.jpeg" alt="Stellar Award">
-                        <div class="impact-desc"><strong>Triple Stellar Award</strong><br>100% Quality & SLA Excellence</div>
-                    </div>
-                </a>
-                <a href="shoutout2.jpeg" target="_blank" class="img-link">
-                    <div class="impact-card">
-                        <img src="shoutout2.jpeg" alt="80M Records">
-                        <div class="impact-desc"><strong>Data Governance Impact</strong><br>Validated 80M+ Company Records</div>
-                    </div>
-                </a>
-                <a href="profile.jpeg" target="_blank" class="img-link">
-                    <div class="impact-card">
-                        <img src="profile.jpeg" alt="All Hands Recognition">
-                        <div class="impact-desc"><strong>Research All Hands</strong><br>Recognized for Operational Impact</div>
-                    </div>
-                </a>
-                <a href="shoutout1.jpeg" target="_blank" class="img-link">
-                    <div class="impact-card">
-                        <img src="shoutout1.jpeg" alt="Quality Shoutout">
-                        <div class="impact-desc"><strong>100% Quality Score</strong><br>Sustained Accuracy Benchmark</div>
-                    </div>
-                </a>
+                <div class="impact-card" onclick="openModal('mvp.jpeg')">
+                    <img src="mvp.jpeg" alt="ZoomInfo MVP">
+                    <div class="impact-desc">Nominated as <strong>Personal MVP</strong> by CDO for innovation in data solutions.</div>
+                </div>
+                <div class="impact-card" onclick="openModal('stellar.jpeg')">
+                    <img src="stellar.jpeg" alt="Stellar Award">
+                    <div class="impact-desc">Earned three consecutive <strong>Stellar Awards</strong> for 100% Quality & SLA compliance.</div>
+                </div>
+                <div class="impact-card" onclick="openModal('shoutout2.jpeg')">
+                    <img src="shoutout2.jpeg" alt="Data Records">
+                    <div class="impact-desc">Cleansed <strong>80 Million+</strong> records with 99%+ accuracy rating.</div>
+                </div>
+                <div class="impact-card" onclick="openModal('profile.jpeg')">
+                    <img src="profile.jpeg" alt="Research All Hands">
+                    <div class="impact-desc">Recognized at <strong>Research All Hands</strong> for operational impact and precision.</div>
+                </div>
+                <div class="impact-card" onclick="openModal('shoutout1.jpeg')">
+                    <img src="shoutout1.jpeg" alt="Innovation">
+                    <div class="impact-desc">Core contributor to <strong>ZI Guardian</strong> (AI Middleware) initiative at Aatral 2025.</div>
+                </div>
             </div>
         </div>
 
         <div id="milestones" class="tab-content">
             <div class="card-grid">
-                <a href="ladakh.jpg" target="_blank" class="img-link">
-                    <div class="impact-card">
-                        <img src="ladakh.jpg" alt="Ladakh Expedition">
-                        <div class="impact-desc"><strong>Ladakh Biking Expedition</strong><br>High-Altitude Endurance Journey</div>
-                    </div>
-                </a>
-                <a href="governor-award.jpeg" target="_blank" class="img-link">
-                    <div class="impact-card">
-                        <img src="governor-award.jpeg" alt="Governor Award">
-                        <div class="impact-desc"><strong>Rajapuraskar Award</strong><br>Governor's Recognition for Scouting</div>
-                    </div>
-                </a>
+                <div class="impact-card" onclick="openModal('ladakh.jpg')">
+                    <img src="ladakh.jpg" alt="Ladakh Expedition">
+                    <div class="impact-desc"><strong>Ladakh Expedition</strong>: Successfully completed a high-altitude biking journey across the Himalayas.</div>
+                </div>
+                <div class="impact-card" onclick="openModal('governor-award.jpeg')">
+                    <img src="governor-award.jpeg" alt="Governor's Award">
+                    <div class="impact-desc"><strong>Governor's Award</strong>: Recipient of the Rajapuraskar for excellence in scouting and leadership.</div>
+                </div>
                 <div class="card">
-                    <h3 class="accent-text" style="margin-top:0;"><i class="fas fa-mask"></i> Scuba Diving</h3>
-                    <p style="font-size:0.95rem;">Certified Scuba Diver. Trained for precision, adaptability, and calm decision-making in technical environments.</p>
+                    <h3 class="accent-text"><i class="fas fa-mask"></i> Scuba Diving</h3>
+                    <p>Certified Scuba Diver. Trained for precision and decision-making in challenging environments.</p>
                 </div>
             </div>
         </div>
 
         <section class="contact-section">
-            <h2 class="accent-text">Connect</h2>
+            <h2 class="accent-text">Let's Connect</h2>
+            <p>Ready to discuss how my data expertise can drive your next project.</p>
             <div class="social-links">
                 <a href="mailto:vibinkumarmv38@gmail.com"><i class="fas fa-envelope"></i></a>
                 <a href="https://www.linkedin.com/in/vibin-kumar-m-v-43b140227/" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -273,8 +321,13 @@
         </section>
 
         <footer>
-            <p>© 2026 Vibin Kumar M V | Built for Data & Engineering Excellence</p>
+            <p>© 2026 Vibin Kumar M V | Research Specialist & Electrical Engineer</p>
         </footer>
+    </div>
+
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImg">
     </div>
 
     <script>
@@ -291,6 +344,25 @@
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
         }
+
+        // MODAL FUNCTIONS
+        function openModal(imgSrc) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImg");
+            modal.style.display = "flex";
+            modalImg.src = imgSrc;
+        }
+
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+
+        // Close on Esc key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeModal();
+            }
+        });
     </script>
 </body>
 </html>
